@@ -11,6 +11,12 @@ namespace lrs {
     std::string password;
 
     Information() = default;
+    Information(const Information& other) = default;
+    Information(Information&& other) = default;
+    ~Information() = default;
+
+    Information& operator=(const Information& other) = default;
+    Information& operator=(Information&& other) = default;
   };
 
   class System {
@@ -18,11 +24,11 @@ namespace lrs {
     std::vector<Information> _users;
 
     public:
-      explicit System(Information& info) : _info(std::move(info)) {}
+      explicit System(Information& info) : _info(info) {}
       // login logic
       void Login() const;
       // register logic
-      void Register() const;
+      void Register();
   };
 } // namespace lrs
 

@@ -7,7 +7,7 @@ namespace lrs {
     std::cout << _info.username << _info.password << std::endl;
   }
 
-  void System::Register() const {
-    //
+  void System::Register() {
+    _users.push_back(_info);
   }
 } // namespace lrs
