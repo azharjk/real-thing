@@ -1,10 +1,13 @@
+#include "lrs.h"
+
 #include <iostream>
 
-int main() {
-  std::string input;
-  std::cin >> input;
+namespace lrs {
+  void System::Login() const {
+    std::cout << _info.username << _info.password << std::endl;
+  }
 
-  std::cout << input << std::endl;
-
-  return 0;
-}
+  void System::Register() const {
+    //
+  }
+} // namespace lrs

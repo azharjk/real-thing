@@ -2,13 +2,15 @@
 
 #include <iostream>
 
+#include "lrs.h"
+
 namespace lrs {
   void CLI::_eat_action() {
     switch (_action) {
-      case LOGIN:
+      case ActionsType::LOGIN:
         _action_login();
         break;
-      case REGISTER:
+      case ActionsType::REGISTER:
         _action_register();
         break;
       default:
@@ -18,11 +20,27 @@ namespace lrs {
   }
 
   void CLI::_action_login() {
-    std::cout << "login\n";
+    Information info{};
+
+    std::cout << "\nEnter your information\nUsername: ";
+    std::cin >> info.username;
+    std::cout << "Password: ";
+    std::cin >> info.password;
+
+    System sys(info);
+    sys.Login();
   }
 
   void CLI::_action_register() {
-    std::cout << "register\n";
+    Information info{};
+
+    std::cout << "\nCreate your information\nUsername: ";
+    std::cin >> info.username;
+    std::cout << "Password: ";
+    std::cin >> info.password;
+
+    System sys(info);
+    sys.Register();
   }
 
   void CLI::_action_invalid() {
@@ -40,12 +58,3 @@ namespace lrs {
     _eat_action();
   }
 } // namespace lrs
-
-int main() {
-  lrs::CLI::WelcomeMessage();
-
-  lrs::CLI cli;
-  cli.TakeInput();
-
-  return 0;
-}

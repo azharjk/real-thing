@@ -1,8 +1,10 @@
-#ifndef __LRS_CLI_H__
-#define __LRS_CLI_H__
+#ifndef LRS_CLI_H_
+#define LRS_CLI_H_
+
+#include <string>
 
 namespace lrs {
-  enum ActionsType {
+  enum class ActionsType {
     LOGIN = 1,
     REGISTER
   };
@@ -15,13 +17,13 @@ namespace lrs {
     void _eat_action();
 
     // login process
-    void _action_login();
+    static void _action_login();
 
     // register process
-    void _action_register();
+    static void _action_register();
 
     // invalid process
-    void _action_invalid();
+    static void _action_invalid();
 
     public:
       // printing to the console the welcome message
@@ -33,4 +35,4 @@ namespace lrs {
   };
 } // namespace lrs
 
-#endif // __LRS_CLI_H__
+#endif // LRS_CLI_H_
