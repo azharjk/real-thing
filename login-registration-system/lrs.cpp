@@ -3,11 +3,16 @@
 #include <iostream>
 
 namespace lrs {
-  void System::Login() const {
-    std::cout << _info.username << _info.password << std::endl;
+  void System::Login(const Information& info) {
+    for (auto& user : _users) {
+      if (user.username == info.username && user.password == info.password) {
+        std::cout << "\n[INFO] Account verified\n";
+      }
+    }
   }
 
-  void System::Register() {
-    _users.push_back(_info);
+  void System::Register(const Information& info) {
+    _users.push_back(info);
+    std::cout << "\n[INFO] Account created\n";
   }
 } // namespace lrs

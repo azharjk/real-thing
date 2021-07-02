@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "lrs.h"
+
 namespace lrs {
   enum class ActionsType {
     LOGIN = 1,
@@ -10,17 +12,18 @@ namespace lrs {
   };
 
   class CLI {
-    ActionsType _action;
-    int _opt;
+    ActionsType _action{};
+    int _opt{};
+    System _sys{};
 
     // use the `_action` value to determining the next step
     void _eat_action();
 
     // login process
-    static void _action_login();
+    void _action_login();
 
     // register process
-    static void _action_register();
+    void _action_register();
 
     // invalid process
     static void _action_invalid();

@@ -22,25 +22,26 @@ namespace lrs {
   void CLI::_action_login() {
     Information info{};
 
-    std::cout << "\nEnter your information\nUsername: ";
+    std::cout << "\n[LOGIN] Enter your information\nUsername: ";
     std::cin >> info.username;
     std::cout << "Password: ";
     std::cin >> info.password;
 
-    System sys(info);
-    sys.Login();
+    _sys.Login(info);
   }
 
   void CLI::_action_register() {
     Information info{};
 
-    std::cout << "\nCreate your information\nUsername: ";
+    std::cout << "\n[REGISTER] Create your information\nUsername: ";
     std::cin >> info.username;
     std::cout << "Password: ";
     std::cin >> info.password;
 
-    System sys(info);
-    sys.Register();
+    _sys.Register(info);
+
+    // after you register go to login
+    _action_login();
   }
 
   void CLI::_action_invalid() {

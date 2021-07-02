@@ -24,11 +24,12 @@ namespace lrs {
     std::vector<Information> _users;
 
     public:
+      System() = default;
       explicit System(Information& info) : _info(info) {}
       // login logic
-      void Login() const;
+      void Login(const Information& info);
       // register logic
-      void Register();
+      void Register(const Information& info);
   };
 } // namespace lrs
 
